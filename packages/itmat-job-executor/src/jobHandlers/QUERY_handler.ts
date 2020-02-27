@@ -50,7 +50,7 @@ export class QUERY_Handler extends JobHandler {
             /* update query status */
             await db.collections!.queries_collection.findOneAndUpdate({ id }, { $set: {
                 error: e.toString(),
-                status: 'FINISHED WITH ERROR'
+                status: 'error'
             }});
             return;
         }
