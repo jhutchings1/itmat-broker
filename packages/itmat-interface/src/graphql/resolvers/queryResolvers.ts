@@ -1,5 +1,11 @@
 import { IQueryEntry } from 'itmat-commons/dist/models/query';
 import { queryCore } from '../core/queryCore';
+import uuid from 'uuid/v4';
+import { Models } from 'itmat-commons';
+import { db } from '../../database/database';
+import { ApolloError } from 'apollo-server-core';
+import { errorCodes } from '../errors';
+import { parseQueryStringIntoTree, checkAndSanitiseQuery } from '../../utils/queryUtils';
 
 
 export const queryResolvers = {
@@ -20,9 +26,40 @@ export const queryResolvers = {
         }
     },
     Mutation: {
-        // createQuery: async(parent: object, args: { queryString: string, returnFieldSelection?: string[], study: string, project?: string }, context: any, info: any): Promise<IQueryEntry> => {
-        //     const query = queryCore.createQuery()
-        // }
+        createQuery: async(parent: object, args: { queryString: string, returnFieldSelection?: string[], studyId: string, projectId?: string }, context: any, info: any): Promise<IQueryEntry> => {
+            const requester: Models.UserModels.IUser = context.req.user;
+
+            /* check privileges */
+
+
+            const { error: parsingError, parsedInput } = parseQueryStringIntoTree(args.queryString);
+            if (parsingError !== undefined) {
+                throw new ApolloError(errorCodes.CLIENT_MALFORMED_INPUT);
+            }
+
+            const queryError = checkAndSanitiseQuery(parsedInput);
+
+            const job: IQueryEntry = {
+                id: uuid(),
+                jobType: 'QUERY',
+                studyId: args.studyId,
+                requester: requester.id,
+                requestTime: new Date().valueOf(),
+                receivedFiles: [],
+                error: null,
+                status: 'QUEUED',
+                cancelled: false,
+                data: {
+                    ...parsedInput
+                }
+            };
+
+            const result = await db.collections!.queries_collection.insertOne(job);
+            if (result.result.ok !== 1) {
+                throw new ApolloError(errorCodes.DATABASE_ERROR);
+            }
+            return job;
+        }
     },
     Subscription: {}
 };

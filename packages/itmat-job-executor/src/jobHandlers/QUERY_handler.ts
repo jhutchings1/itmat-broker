@@ -1,13 +1,23 @@
+import { db } from '../database/database';
+import { JobHandler } from './jobHandlerInterface';
 import { IQueryEntry } from 'itmat-commons/dist/models/query';
 import { IProject } from 'itmat-commons/dist/models/study';
 import { Logger } from 'itmat-utils';
-import { db } from '../database/database';
-import { pipelineGenerator } from './pipeLineGenerator';
+import { pipelineGenerator } from '../query/pipeLineGenerator';
 
-class QueryHandler {
-    public async actOnDocument(document: IQueryEntry): Promise<void> {
+export class QUERY_Handler extends JobHandler {
+    private _instance?: QUERY_Handler;
+
+    public async getInstance() {
+        if (!this._instance) {
+            this._instance = new QUERY_Handler();
+        }
+        return this._instance;
+    }
+
+    public async execute(document: IQueryEntry): Promise<void> {
         const { id } = document;
-        const pipeline = pipelineGenerator.buildPipeline(document);
+        const pipeline = pipelineGenerator.buildPipeline(document.data);
         try {
             const result = await db.collections!.data_collection.aggregate(pipeline).toArray();
 
@@ -17,7 +27,7 @@ class QueryHandler {
                 if (project === null || project === undefined) {
                     await db.collections!.queries_collection.findOneAndUpdate({ id }, { $set: {
                         error: 'Project does not exist or has been deleted.',
-                        status: 'FINISHED WITH ERROR'
+                        status: 'error'
                     }});
                     return;
                 }
@@ -29,8 +39,8 @@ class QueryHandler {
             }
 
             await db.collections!.queries_collection.findOneAndUpdate({ id }, { $set: {
-                queryResult: JSON.stringify(result),
-                status: 'FINISHED'
+                'data.queryResult': JSON.stringify(result),
+                'status': 'finished'
             }});
             return;
         } catch (e) {
@@ -46,5 +56,3 @@ class QueryHandler {
         }
     }
 }
-
-export const queryHandler = new QueryHandler();

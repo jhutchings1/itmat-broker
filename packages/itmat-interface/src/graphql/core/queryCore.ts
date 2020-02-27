@@ -14,24 +14,6 @@ export class QueryCore {
         return queryEntry;
     }
 
-    public async createQuery(userId: string, queryString: string, studyId: string, projectId?: string): Promise<IQueryEntry> {
-        const query: IQueryEntry = {
-            requester: userId,
-            id: uuidv4(),
-            queryString,
-            studyId,
-            projectId,
-            status: 'QUEUED',
-            error: null,
-            cancelled: false,
-            data_requested: JSON.parse(queryString).data_requested,
-            cohort: JSON.parse(queryString).cohort,
-            new_fields: JSON.parse(queryString).new_fields
-        };
-        await db.collections!.queries_collection.insertOne(query);
-        return query;
-    }
-
     public async getUsersQuery_NoResult(userId: string): Promise<IQueryEntry[]> {
         return db.collections!.queries_collection.find({ requester: userId }, { projection: { _id: 0, claimedBy: 0, queryResult: 0 } }).toArray();
 

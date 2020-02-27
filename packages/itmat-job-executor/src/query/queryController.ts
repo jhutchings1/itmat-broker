@@ -26,63 +26,22 @@ let query_test = {
             op: 'exists'}]
     ],
     new_fields: [
-   {
-        name: 'BMI',
-        value: {
-            left: {
-                left: '12143.0.0',
-                right: '',
-                op: 'field'
-            },
-            right: {
-                left: '12144.0.0',
-                right: '2',
-                op: '^'
-            },
-            op: '/'
-        },
-        op: 'derived'
-   }
+        {
+                name: 'BMI',
+                value: {
+                    left: {
+                        left: '12143.0.0',
+                        right: '',
+                        op: 'field'
+                    },
+                    right: {
+                        left: '12144.0.0',
+                        right: '2',
+                        op: '^'
+                    },
+                    op: '/'
+                },
+                op: 'derived'
+        }
     ]
 };
-
-/// **
-// * @fn getStatus
-// * @desc HTTP method GET handler on this service status
-// * @param req Incoming message
-// * @param res Server Response
-// */
-// QueryController.prototype.processQuery = function(req, res) {
-//    let _this = this;
-//    let queryId = req.body.query_id;
-//    try {
-//        _this._queryCollection.findOne({id : queryId}).then(function(query){
-//
-//            let pipeline = _this._queryHelper.buildPipeline(query);
-//
-//            if(pipeline === 'Error'){
-//                res.status(500);
-//                res.json('Error while building the pipeline: ' + query);
-//            }
-//
-//            _this._dataCollection.aggregate(pipeline).toArray().then(function (results) {
-//                res.status(200);
-//                res.json(results);
-//            },function(error){
-//                res.status(500).json(error + ' ' + error.toString());
-//
-//            });
-//        },function(error){
-//            res.status(401);
-//            res.json('Error while processing the query ' + queryId + error.toString());
-//        });
-//    }
-//    catch (error) {
-//        res.status(510);
-//        res.json('Error occurred', error);
-//    }
-// };
-//
-//
-// module.exports = QueryController;
-//

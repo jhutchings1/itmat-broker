@@ -1,12 +1,14 @@
 import { IJobEntry } from './job';
 
-export type IQueryEntry = IJobEntry<{
+export type IQueryEntry = IJobEntry<IQueryInput>;
+
+export interface IQueryInput {
     queryString: string;
     queryResults?: object;
-    data_requested?: string[];
-    cohort?: ICohortSelection[][];
-    new_fields?: INewFieldSelection[];
-}>;
+    data_requested: string[];
+    cohort: ICohortSelection[][];
+    new_fields: INewFieldSelection[];
+}
 
 export interface ICohortSelection {
     field: string;

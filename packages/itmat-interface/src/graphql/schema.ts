@@ -213,8 +213,8 @@ type Query {
     getStudyFields(fieldTreeId: String!, studyId: String!): [Field]
 
     # QUERY
-    getQueries(studyId: String!, projectId: String): [QueryEntry]  # only returns the queries that the user has access to.
-    getQueryById(queryId: String!): QueryEntry
+    getQueries(studyId: String!, projectId: String): [Job]  # only returns the queries that the user has access to.
+    getQueryById(queryId: String!): Job 
 
     # PERMISSION
     getMyPermissions: [String]
