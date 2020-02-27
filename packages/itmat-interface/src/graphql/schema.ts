@@ -147,22 +147,6 @@ type Job {
     data: JSON
 }
 
-type QueryEntry {
-    id: String!,
-    queryString: String!,
-    studyId: String!,
-    projectId: String,
-    requester: String!,
-    status: String!,
-    error: JSON,
-    cancelled: Boolean,
-    cancelledTime: Int,
-    queryResult: String,
-    data_requested: [String],
-    cohort: JSON,
-    new_fields: JSON
-}
-
 type GenericResponse {
     successful: Boolean!
     id: String
@@ -183,12 +167,7 @@ type JobStatusChange_Subscription {
     errors: [String]
 }
 
-input QueryObjInput {
-    queryString: String!
-    returnFieldSelection: [String]
-    study: String!
-    project: String
-}
+
 
 input CreateUserInput {
     username: String!
@@ -272,7 +251,7 @@ type Mutation {
 
 
     # QUERY
-    createQuery(query: QueryObjInput!): QueryEntry
+    createQuery(studyId: String!, projectId: String, queryString: String!, returnFieldSelection: [String]): Job
 
     # CURATION
     createDataCurationJob(file: String!, studyId: String!, tag: String, version: String!): Job

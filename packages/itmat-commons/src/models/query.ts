@@ -1,20 +1,12 @@
-export interface IQueryEntry {
-    id: string;
+import { IJobEntry } from './job';
+
+export type IQueryEntry = IJobEntry<{
     queryString: string;
-    studyId: string;
-    projectId?: string;
-    requester: string;
-    claimedBy?: string;
-    lastClaimed?: number;
-    status: string;
-    error: null | string;
-    cancelled: boolean;
-    cancelledTime?: number;
-    queryResult?: string;
-    data_requested: string[];
-    cohort: ICohortSelection[][];
-    new_fields: INewFieldSelection[];
-}
+    queryResults?: object;
+    data_requested?: string[];
+    cohort?: ICohortSelection[][];
+    new_fields?: INewFieldSelection[];
+}>;
 
 export interface ICohortSelection {
     field: string;

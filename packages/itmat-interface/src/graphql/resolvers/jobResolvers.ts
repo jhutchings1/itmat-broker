@@ -1,6 +1,6 @@
 import { ApolloError, withFilter } from 'apollo-server-express';
 import { Models } from 'itmat-commons';
-import { IJobEntry } from 'itmat-commons/dist/models/job';
+import { IJobEntry, IJobEntryForDataCuration, IJobEntryForFieldCuration } from 'itmat-commons/dist/models/job';
 import uuid from 'uuid/v4';
 import { db } from '../../database/database';
 import { errorCodes } from '../errors';
@@ -30,7 +30,7 @@ export const jobResolvers = {
             }
 
             /* create job */
-            const job: IJobEntry<{ dataVersion: string, versionTag?: string }> = {
+            const job: IJobEntryForDataCuration = {
                 id: uuid(),
                 jobType: JOB_TYPE.DATA_UPLOAD,
                 studyId: args.studyId,
@@ -62,7 +62,7 @@ export const jobResolvers = {
             /* check study exists */
 
             /* create job */
-            const job: IJobEntry<{ dataVersionId: string, tag: string }> = {
+            const job: IJobEntryForFieldCuration = {
                 id: uuid(),
                 jobType: JOB_TYPE.FIELD_INFO_UPLOAD,
                 studyId: args.studyId,
