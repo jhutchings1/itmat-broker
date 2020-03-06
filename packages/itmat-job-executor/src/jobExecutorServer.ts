@@ -8,6 +8,7 @@ import { JobPoller } from 'itmat-utils';
 import { JobDispatcher } from './jobDispatch/dispatcher';
 import { UKB_CSV_UPLOAD_Handler } from './jobHandlers/UKB_CSV_UPLOAD_handler';
 import { UKB_FIELD_INFO_UPLOAD_Handler } from './jobHandlers/UKB_FIELD_INFO_UPLOAD_handler';
+import { QUERY_Handler } from './jobHandlers/QUERY_handler';
 
 class ITMATJobExecutorServer extends Server {
 
@@ -38,14 +39,14 @@ class ITMATJobExecutorServer extends Server {
                     const jobDispatcher = new JobDispatcher();
 
                     /* TO_DO: can we figure out the files at runtime and import at runtime */
-                    console.log(UKB_CSV_UPLOAD_Handler.prototype.getInstance);
                     jobDispatcher.registerJobType('DATA_UPLOAD', UKB_CSV_UPLOAD_Handler.prototype.getInstance);
                     jobDispatcher.registerJobType('FIELD_INFO_UPLOAD', UKB_FIELD_INFO_UPLOAD_Handler.prototype.getInstance);
-                    // jobDispatcher.registerJobType('UKB_IMAGE_UPLOAD', UKB_IMAGE_UPLOAD_Handler.prototype.getInstance);
+                    jobDispatcher.registerJobType('QUERY', QUERY_Handler.prototype.getInstance);
 
                     const poller = new JobPoller({
                         identity: 'me',
-                        jobCollection: db.collections!.jobs_collection,
+                        // jobCollection: db.collections!.jobs_collection,
+                        jobCollection: db.collections!.queries_collection,
                         pollingFrequency: 10000,
                         action: jobDispatcher.dispatch
                     });
