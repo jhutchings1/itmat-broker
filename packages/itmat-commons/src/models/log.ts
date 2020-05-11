@@ -8,14 +8,14 @@ export interface ILogEntry {
     outcome: string;
 }
 
-enum LOG_TYPE {
+export enum LOG_TYPE {
     ERROR = 'ERROR',
     USER_ACTION = 'USER_ACTION',
     LOGIN_ATTEMPT = 'LOGIN_ATTEMPT',
     SYSTEM_LOG = 'SYSTEM_LOG'
 }
 
-enum LOG_SUBTYPE {
+export enum LOG_SUBTYPE {
     DATADASE_WRITE = 'DATABASE_WRITE',
     DATADASE_READ = 'DATABASE_READ'
 }

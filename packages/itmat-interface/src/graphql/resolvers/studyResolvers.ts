@@ -4,7 +4,7 @@ import { IFieldEntry } from 'itmat-commons';
 import { IProject, IStudy, IStudyDataVersion } from 'itmat-commons';
 import { IUser } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import { permissionCore } from '../core/permissionCore';
 import { studyCore } from '../core/studyCore';
 import { errorCodes } from '../errors';

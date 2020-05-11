@@ -4,7 +4,7 @@ import { IRole } from 'itmat-commons';
 import { IUser, userTypes } from 'itmat-commons';
 import { BulkWriteResult } from 'mongodb';
 import { v4 as uuid } from 'uuid';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import { errorCodes } from '../errors';
 
 interface ICreateRoleInput {

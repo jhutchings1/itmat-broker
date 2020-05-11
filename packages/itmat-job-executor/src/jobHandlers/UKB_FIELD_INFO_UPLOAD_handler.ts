@@ -1,4 +1,4 @@
-import { db } from '../database/database';
+import { db } from '../database';
 import { objStore } from '../objStore/objStore';
 import { JobHandler } from './jobHandlerInterface';
 import { IJobEntryForFieldCuration } from 'itmat-commons';

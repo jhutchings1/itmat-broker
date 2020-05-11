@@ -2,12 +2,10 @@ import * as mongodb from 'mongodb';
 import { CustomError } from './error';
 import { Logger } from './logger';
 
-export interface IDatabaseBaseConfig {
+export interface IDatabaseBaseConfig<Collections> {
     mongo_url: string;
     database: string;
-    collections: {
-        [collectionDescription: string]: string  // collection name
-    };
+    collections: Collections;
 }
 
 export interface IDatabase {
@@ -19,7 +17,7 @@ export interface IDatabase {
     closeConnection: () => Promise<void>;
 }
 
-export class Database<configType extends IDatabaseBaseConfig, C = { [name in keyof configType['collections']]: mongodb.Collection }> implements IDatabase {
+export class Database<Collections> implements IDatabase {
 
     get db(): mongodb.Db {
         return this.localClient!.db(this.config!.database);
@@ -28,11 +26,11 @@ export class Database<configType extends IDatabaseBaseConfig, C = { [name in key
     get client(): mongodb.MongoClient {
         return this.localClient!;
     }
-    public collections?: C;
+    public collections?: Collections;
     private localClient?: mongodb.MongoClient;
-    private config?: configType;
+    private config?: IDatabaseBaseConfig<{ [name in keyof Collections]: string }>;
 
-    public async connect(config: configType): Promise<void> {
+    public async connect(config: IDatabaseBaseConfig<{ [name in keyof Collections]: string }>): Promise<void> {
         this.localClient = new mongodb.MongoClient(config.mongo_url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
@@ -69,17 +67,17 @@ export class Database<configType extends IDatabaseBaseConfig, C = { [name in key
     }
 
     private assignCollections(): void {
-        const collections: C = Object.entries(this.config!.collections).reduce((a: any, e: [string, string]) => {
-            a[e[0]] = this.db.collection(e[1]);
+        const collections: Collections = Object.entries(this.config!.collections).reduce((a, e) => {
+            a[e[0]] = this.db.collection(e[1] as string);
             return a;
-        }, {});
+        }, {} as Collections);
         this.collections = collections;
     }
 
     private async checkAllCollectionsArePresent(): Promise<void> {
         const collectionList: string[] = (await this.db.listCollections({}).toArray()).map((el) => el.name);
         for (const each of Object.values(this.config!.collections)) {
-            if (!collectionList.includes(each)) {
+            if (!collectionList.includes(each as string)) {
                 throw new CustomError(`Collection ${each} does not exist.`);
             }
         }

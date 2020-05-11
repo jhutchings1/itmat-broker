@@ -35,6 +35,10 @@
     "devDependencies": {
         "@babel/core": "7.9.6",
         "@babel/preset-env": "7.9.6",
+        "@babel/plugin-proposal-class-properties": "7.8.3",
+        "@babel/plugin-proposal-object-rest-spread": "7.9.6",
+        "@babel/plugin-syntax-dynamic-import": "7.8.3",
+        "@babel/preset-typescript": "7.9.0",
         "@types/connect-timeout": "0.0.34",
         "@types/express": "4.17.6",
         "@types/jest": "25.2.1",
@@ -44,6 +48,7 @@
         "@types/node": "13.11.1",
         "@types/node-fetch": "2.5.6",
         "@types/uuid": "7.0.2",
+        "babel-loader": "8.1.0",
         "cross-env": "7.0.2",
         "eslint-plugin-typescript": "0.14.0",
         "jest": "25.3.0",

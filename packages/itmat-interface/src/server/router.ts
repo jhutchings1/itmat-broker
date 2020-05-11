@@ -9,7 +9,7 @@ import http from 'http';
 import { CustomError, Logger } from 'itmat-utils';
 import multer from 'multer';
 import passport from 'passport';
-import { db } from '../database/database';
+import { db } from '../database';
 import { resolvers } from '../graphql/resolvers';
 import { schema } from '../graphql/schema';
 import { fileDownloadController } from '../rest/fileDownload';

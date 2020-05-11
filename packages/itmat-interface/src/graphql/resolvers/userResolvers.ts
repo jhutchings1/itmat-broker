@@ -5,7 +5,7 @@ import { IProject, IRole, IStudy } from 'itmat-commons';
 import { IUser, userTypes } from 'itmat-commons';
 import { Logger } from 'itmat-utils';
 import mongodb from 'mongodb';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import config from '../../utils/configManager';
 import { userCore } from '../core/userCore';
 import { errorCodes } from '../errors';

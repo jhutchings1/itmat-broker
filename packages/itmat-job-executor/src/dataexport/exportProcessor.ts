@@ -3,7 +3,7 @@ import { Logger } from 'itmat-utils';
 import { Transform } from 'json2csv';
 import mongodb from 'mongodb';
 import { Readable } from 'stream';
-import { db } from '../database/database';
+import { db } from '../database';
 
 export class ExportProcessor {
     /* document from [ mongo cursor -> flatten document -> input stream -> json2csv -> output stream ] -> swift */

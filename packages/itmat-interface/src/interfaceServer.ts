@@ -1,6 +1,6 @@
 // External node module imports
 import { Server as HTTPServer } from 'http';
-import { db } from './database/database';
+import { db } from './database';
 import { objStore } from './objStore/objStore';
 import { Router } from './server/router';
 import { Server } from './server/server';
@@ -39,12 +39,14 @@ class ITMATInterfaceServer extends Server {
                             data.updateDescription.updatedFields &&
                             data.updateDescription.updatedFields.status
                         ) {
-                            pubsub.publish(subscriptionEvents.JOB_STATUS_CHANGE, { subscribeToJobStatusChange: {
-                                jobId: data.fullDocument.id,
-                                studyId: data.fullDocument.studyId,
-                                newStatus: data.fullDocument.status,
-                                errors: data.fullDocument.status === 'error' ? data.fullDocument.errors : null
-                            } });
+                            pubsub.publish(subscriptionEvents.JOB_STATUS_CHANGE, {
+                                subscribeToJobStatusChange: {
+                                    jobId: data.fullDocument.id,
+                                    studyId: data.fullDocument.studyId,
+                                    newStatus: data.fullDocument.status,
+                                    errors: data.fullDocument.status === 'error' ? data.fullDocument.errors : null
+                                }
+                            });
                         }
                     });
 

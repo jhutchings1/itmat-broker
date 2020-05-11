@@ -1,5 +1,5 @@
 import { Models } from 'itmat-commons';
-import { db } from '../database/database';
+import { db } from '../database';
 
 export class UserLoginUtils {
     constructor() {

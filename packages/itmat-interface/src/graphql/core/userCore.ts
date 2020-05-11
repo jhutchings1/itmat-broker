@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { Models } from 'itmat-commons';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import config from '../../utils/configManager';
 
 import { ApolloError } from 'apollo-server-core';

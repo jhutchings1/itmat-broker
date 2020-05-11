@@ -1,7 +1,7 @@
 import { ApolloError } from 'apollo-server-express';
 import { IRole } from 'itmat-commons';
 import { IUser } from 'itmat-commons';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import { permissionCore } from '../core/permissionCore';
 import { studyCore } from '../core/studyCore';
 import { errorCodes } from '../errors';

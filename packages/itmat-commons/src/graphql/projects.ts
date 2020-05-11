@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 import { job_fragment } from './curation';
 
-
 export const GET_PROJECT = gql`
     query getProject($projectId: String!, $admin: Boolean!) {
         getProject(projectId: $projectId) {

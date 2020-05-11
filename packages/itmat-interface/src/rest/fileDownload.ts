@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { IFile } from 'itmat-commons';
-import { db } from '../database/database';
+import { db } from '../database';
 import { objStore } from '../objStore/objStore';
 import { permissionCore } from '../graphql/core/permissionCore';
 import { Models, task_required_permissions } from 'itmat-commons';

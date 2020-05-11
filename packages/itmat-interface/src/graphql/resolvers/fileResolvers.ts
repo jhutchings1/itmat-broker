@@ -3,7 +3,7 @@ import { Models, permissions, task_required_permissions } from 'itmat-commons';
 import { IFile } from 'itmat-commons';
 import { Logger } from 'itmat-utils';
 import { v4 as uuid } from 'uuid';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import { objStore } from '../../objStore/objStore';
 import { permissionCore } from '../core/permissionCore';
 import { errorCodes } from '../errors';

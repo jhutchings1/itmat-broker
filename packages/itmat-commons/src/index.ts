@@ -1,6 +1,6 @@
 import { permissions, task_required_permissions } from './permissions';
 export { permissions, task_required_permissions };
-export { GQLRequests } from './graphql/index';
-import * as Models from './models/index';
-export * from './models/index';
+export { GQLRequests } from './graphql';
+import * as Models from './models';
+export * from './models';
 export { Models };

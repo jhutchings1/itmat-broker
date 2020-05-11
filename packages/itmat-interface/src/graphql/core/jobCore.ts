@@ -1,6 +1,6 @@
 import { IJobEntry } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
-import { db } from '../../database/database';
+import { db } from '../../database';
 
 export class JobCore {
     public async createJob(userId: string, jobType: string, files: string[], studyId: string, projectId?: string, jobId?: string): Promise<IJobEntry<any>> {

@@ -6,7 +6,7 @@ import configDefaults from '../../config/config.sample.json';
 import { IServerConfig } from '../server/server.js';
 
 interface IConfiguration extends IServerConfig {
-    database: IDatabaseBaseConfig;
+    database: IDatabaseBaseConfig<unknown>;
     objectStore: IObjectStoreConfig;
 }
 

@@ -1,5 +1,5 @@
 import { IFieldEntry } from 'itmat-commons';
-import { db } from '../../database/database';
+import { db } from '../../database';
 
 export class FieldCore {
     public async getFieldsOfStudy(studyId: string, detailed: boolean, getOnlyTheseFields?: string[]): Promise<IFieldEntry[]> {

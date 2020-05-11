@@ -1,7 +1,7 @@
 import { ApolloError } from 'apollo-server-core';
 import { IQueryEntry } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
-import { db } from '../../database/database';
+import { db } from '../../database';
 import { errorCodes } from '../errors';
 
 export class QueryCore {

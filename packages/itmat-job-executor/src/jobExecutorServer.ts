@@ -1,6 +1,6 @@
 // External node module imports
 import { Server as HTTPServer } from 'http';
-import { db } from './database/database';
+import { db } from './database';
 import { objStore } from './objStore/objStore';
 import { Router } from './server/router';
 import { Server } from './server/server';
