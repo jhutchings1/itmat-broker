@@ -1,11 +1,11 @@
 import React from 'react';
 import { Mutation, Query, useQuery } from 'react-apollo';
-import { EDIT_PROJECT_APPROVED_FIELDS } from 'itmat-commons/dist/graphql/projects';
-import { GET_STUDY } from 'itmat-commons/dist/graphql/study';
+import { EDIT_PROJECT_APPROVED_FIELDS } from 'itmat-commons';
+import { GET_STUDY } from 'itmat-commons';
 import { FieldListSection } from '../../../../reusable/fieldList/fieldList';
 import { LoadingBalls } from '../../../../reusable/icons/loadingBalls';
-import { GET_STUDY_FIELDS } from 'itmat-commons/dist/graphql/fields';
-import { IFieldEntry } from 'itmat-commons/dist/models/field';
+import { GET_STUDY_FIELDS } from 'itmat-commons';
+import { IFieldEntry } from 'itmat-commons';
 
 
 export const GrantedFieldListSection: React.FunctionComponent<{ originalCheckedList: { [fieldTreeId: string]: string[] }, studyId: string, projectId: string }> = ({ projectId, originalCheckedList, studyId }) => {

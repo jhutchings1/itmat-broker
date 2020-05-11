@@ -1,9 +1,9 @@
-import { IProject } from 'itmat-commons/dist/models/study';
+import { IProject } from 'itmat-commons';
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import { Redirect } from 'react-router';
-import { DELETE_PROJECT, GET_STUDY } from 'itmat-commons/dist/graphql/study';
-import { WHO_AM_I } from 'itmat-commons/dist/graphql/user';
+import { DELETE_PROJECT, GET_STUDY } from 'itmat-commons';
+import { WHO_AM_I } from 'itmat-commons';
 
 export const DeleteProjectSection: React.FunctionComponent<{ studyId: string, projectId: string, projectName: string }> = ({ studyId, projectId, projectName }) => {
     const [isExpanded, setIsExpanded] = React.useState(false);

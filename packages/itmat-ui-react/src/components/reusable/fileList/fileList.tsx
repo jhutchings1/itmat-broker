@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useMutation } from 'react-apollo';
 import { Table, Button, notification } from 'antd';
-import { IFile } from 'itmat-commons/dist/models/file';
+import { IFile } from 'itmat-commons';
 import { DeleteOutlined, CloudDownloadOutlined } from '@ant-design/icons';
-import { DELETE_FILE } from 'itmat-commons/dist/graphql/files';
+import { DELETE_FILE } from 'itmat-commons';
 import { ApolloError } from 'apollo-client';
 
 export function formatBytes(size: number, decimal: number = 2) {

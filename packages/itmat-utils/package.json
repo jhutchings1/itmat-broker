@@ -4,8 +4,8 @@
     "description": "",
     "license": "MIT",
     "author": "Chon Sou",
-    "main": "dist/index",
-    "types": "dist/index",
+    "main": "src/index",
+    "module": "src/index",
     "files": [
         "dist"
     ],
@@ -13,7 +13,6 @@
         "build": "yarn run clean && yarn run compile",
         "clean": "rimraf -rf ./dist",
         "compile": "tsc -p tsconfig.build.json",
-        "start": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
         "prepublishOnly": "yarn run build",
         "test": "jest --color --coverage --runInBand --verbose --forceExit --detectOpenHandles",
         "lint": "eslint --ext .jsx --ext .js --ext .ts ./",

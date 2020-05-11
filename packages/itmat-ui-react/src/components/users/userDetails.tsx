@@ -1,8 +1,8 @@
-import { IUserWithoutToken } from 'itmat-commons/dist/models/user';
+import { IUserWithoutToken } from 'itmat-commons';
 import * as React from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { NavLink } from 'react-router-dom';
-import { DELETE_USER, EDIT_USER, GET_USERS } from 'itmat-commons/dist/graphql/appUsers';
+import { DELETE_USER, EDIT_USER, GET_USERS } from 'itmat-commons';
 import { Subsection } from '../reusable';
 import { LoadingBalls } from '../reusable/icons/loadingBalls';
 import { ProjectSection } from './projectSection';

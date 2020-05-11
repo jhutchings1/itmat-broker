@@ -3,7 +3,7 @@ import { Models } from 'itmat-commons';
 import * as React from 'react';
 import { Query } from 'react-apollo';
 import { NavLink } from 'react-router-dom';
-import { GET_USERS } from 'itmat-commons/dist/graphql/appUsers';
+import { GET_USERS } from 'itmat-commons';
 import { LoadingBalls } from '../reusable/icons/loadingBalls';
 import css from './userList.module.css';
 
@@ -14,16 +14,16 @@ export const UserListSection: React.FunctionComponent = (props) => {
             variables={{ fetchDetailsAdminOnly: true, fetchAccessPrivileges: false }}
         >
             {({ loading, error, data }) => {
-            if (loading) { return <LoadingBalls />; }
-	            if (error) {
-	                return (
-	                    <p>
-	                        Error :(
-	                        {error.message}
-	                    </p>
-	                );
-	            }
-	            const userList: Models.UserModels.IUserWithoutToken[] = data.getUsers;
+                if (loading) { return <LoadingBalls />; }
+                if (error) {
+                    return (
+                        <p>
+                            Error :(
+                            {error.message}
+                        </p>
+                    );
+                }
+                const userList: Models.UserModels.IUserWithoutToken[] = data.getUsers;
                 return (
                     <UserList list={userList} />
                 );

@@ -1,6 +1,6 @@
 import { ApolloError } from 'apollo-server-express';
 import { Models, permissions, task_required_permissions } from 'itmat-commons';
-import { IFile } from 'itmat-commons/dist/models/file';
+import { IFile } from 'itmat-commons';
 import { Logger } from 'itmat-utils';
 import { v4 as uuid } from 'uuid';
 import { db } from '../../database/database';

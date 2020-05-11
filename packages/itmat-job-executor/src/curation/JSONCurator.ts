@@ -1,5 +1,5 @@
 import { Collection } from 'mongodb';
-import { IJobEntry } from 'itmat-commons/dist/models/job';
+import { IJobEntry } from 'itmat-commons';
 import { Writable } from 'stream';
 import JSONStream from 'JSONStream';
 import { IFieldDescriptionObject, IDataEntry } from '../utils/Interfaces';

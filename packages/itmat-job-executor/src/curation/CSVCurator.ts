@@ -1,6 +1,6 @@
 import csvparse from 'csv-parse';
 import { Collection } from 'mongodb';
-import { IJobEntry } from 'itmat-commons/dist/models/job';
+import { IJobEntry } from 'itmat-commons';
 import { Writable } from 'stream';
 import { IFieldDescriptionObject, IDataEntry } from '../utils/Interfaces';
 

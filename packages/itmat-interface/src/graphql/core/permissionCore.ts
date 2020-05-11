@@ -1,7 +1,7 @@
 import { ApolloError } from 'apollo-server-core';
 import { permissions } from 'itmat-commons';
-import { IRole } from 'itmat-commons/dist/models/study';
-import { IUser, userTypes } from 'itmat-commons/dist/models/user';
+import { IRole } from 'itmat-commons';
+import { IUser, userTypes } from 'itmat-commons';
 import { BulkWriteResult } from 'mongodb';
 import { v4 as uuid } from 'uuid';
 import { db } from '../../database/database';

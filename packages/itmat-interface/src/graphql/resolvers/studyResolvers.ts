@@ -1,8 +1,8 @@
 import { ApolloError } from 'apollo-server-express';
 import { permissions, Models, task_required_permissions } from 'itmat-commons';
-import { IFieldEntry } from 'itmat-commons/dist/models/field';
-import { IProject, IStudy, IStudyDataVersion } from 'itmat-commons/dist/models/study';
-import { IUser } from 'itmat-commons/dist/models/user';
+import { IFieldEntry } from 'itmat-commons';
+import { IProject, IStudy, IStudyDataVersion } from 'itmat-commons';
+import { IUser } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
 import { db } from '../../database/database';
 import { permissionCore } from '../core/permissionCore';

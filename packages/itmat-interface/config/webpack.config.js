@@ -19,6 +19,7 @@ module.exports = {
     watch: NODE_ENV === 'development' ? true : false,
     target: 'node',
     resolve: {
+        mainFields: ['module', 'main'],
         extensions: ['.ts', '.mjs', '.js'],
     },
     externals: [{

@@ -23,7 +23,7 @@ To make our life easier, we use [Yarn](https://yarnpkg.com/) a lot. Make sure yo
 
 ### Start the project
 
-Building the library is easy. First run `yarn install && yarn start`, to build the application. The current application is built ontop of a system called ICL-ITMAT-Broker comprised of multiple components including :
+Building the library is easy. First run `yarn install && yarn start`, to build the application. The current application is built ontop of a system Imperial College London's Data Science Institute called [ITMAT Broker](https://github.com/dsi-icl/itmat-broker) comprised of multiple components including :
 
 - itmat-commons
 - itmat-interface
@@ -31,7 +31,12 @@ Building the library is easy. First run `yarn install && yarn start`, to build t
 - itmat-ui-react
 - itmat-utils
 
+### Start one item at a time
+
+There are scripts to start the `interface`, the `job-executor` and the `ui-react` separatly; just use `yarn start:[component]` to do it.
+
 ## Contributing
+
 Pull requests are welcome!
 See the [list of open issues](https://github.com/ideafast/ideafast-portal/issues) to get an idea of what you could work on.
 Or, if you have an awesome idea, please [create a new issue](https://github.com/ideafast/ideafast-portal/issues/new).

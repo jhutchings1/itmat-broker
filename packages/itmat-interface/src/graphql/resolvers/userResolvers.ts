@@ -1,8 +1,8 @@
 import { ApolloError, UserInputError } from 'apollo-server-express';
 import bcrypt from 'bcrypt';
 import { Models } from 'itmat-commons';
-import { IProject, IRole, IStudy } from 'itmat-commons/dist/models/study';
-import { IUser, userTypes } from 'itmat-commons/dist/models/user';
+import { IProject, IRole, IStudy } from 'itmat-commons';
+import { IUser, userTypes } from 'itmat-commons';
 import { Logger } from 'itmat-utils';
 import mongodb from 'mongodb';
 import { db } from '../../database/database';
@@ -193,7 +193,7 @@ export const userResolvers = {
                 }
             }
             // if (requester.type !== Models.UserModels.userTypes.ADMIN && type !== undefined) {
-                // throw new ApolloError('Non-admin users are not authorised to change user type.');
+            // throw new ApolloError('Non-admin users are not authorised to change user type.');
             // }
 
             const fieldsToUpdate: any = {

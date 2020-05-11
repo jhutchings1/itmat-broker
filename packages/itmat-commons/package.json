@@ -4,8 +4,8 @@
     "description": "",
     "license": "MIT",
     "author": "Florian Guitton",
-    "main": "dist/index",
-    "types": "dist/index",
+    "main": "src/index",
+    "module": "src/index",
     "files": [
         "dist"
     ],
@@ -13,8 +13,6 @@
         "build": "yarn run clean && yarn run compile",
         "clean": "rimraf -rf ./dist",
         "compile": "tsc -p tsconfig.build.json",
-        "start": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
-        "start:testServer": "yarn start",
         "prepublishOnly": "yarn run build",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint --ext .jsx --ext .js --ext .ts ./",

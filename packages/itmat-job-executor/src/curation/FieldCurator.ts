@@ -1,8 +1,8 @@
 import csvparse from 'csv-parse';
 import { Collection } from 'mongodb';
-import { IJobEntryForFieldCuration } from 'itmat-commons/dist/models/job';
+import { IJobEntryForFieldCuration } from 'itmat-commons';
 import { Writable } from 'stream';
-import { IFieldEntry, enumValueType, enumItemType } from 'itmat-commons/dist/models/field';
+import { IFieldEntry, enumValueType, enumItemType } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
 
 /* update should be audit trailed */

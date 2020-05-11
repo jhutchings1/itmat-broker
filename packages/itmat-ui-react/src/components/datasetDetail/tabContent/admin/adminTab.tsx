@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useQuery } from 'react-apollo';
-import { GET_STUDY } from 'itmat-commons/dist/graphql/study';
+import { GET_STUDY } from 'itmat-commons';
 import { Subsection } from '../../../reusable';
 import { LoadingBalls } from '../../../reusable/icons/loadingBalls';
 import css from './tabContent.module.css';

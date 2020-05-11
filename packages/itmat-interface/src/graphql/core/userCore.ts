@@ -4,7 +4,7 @@ import { db } from '../../database/database';
 import config from '../../utils/configManager';
 
 import { ApolloError } from 'apollo-server-core';
-import { IUser, IUserWithoutToken, userTypes } from 'itmat-commons/dist/models/user';
+import { IUser, IUserWithoutToken, userTypes } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
 import { errorCodes } from '../errors';
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
-import { WHO_AM_I } from 'itmat-commons/dist/graphql/user';
+import { WHO_AM_I } from 'itmat-commons';
 import Providers from './Providers';
 import { LoginBox } from './components/login/login';
 import { Spinner } from './components/reusable/icons/spinner';

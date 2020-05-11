@@ -1,9 +1,9 @@
 import { Switch } from 'antd';
 import 'antd/lib/switch/style/css';
-import { IStudy, IStudyDataVersion } from 'itmat-commons/dist/models/study';
+import { IStudy, IStudyDataVersion } from 'itmat-commons';
 import * as React from 'react';
 import { Query, useMutation } from 'react-apollo';
-import { GET_STUDY, SET_DATAVERSION_AS_CURRENT } from 'itmat-commons/dist/graphql/study';
+import { GET_STUDY, SET_DATAVERSION_AS_CURRENT } from 'itmat-commons';
 import { InfoCircle } from '../../../reusable/icons/infoCircle';
 import { LoadingBalls } from '../../../reusable/icons/loadingBalls';
 import { Subsection } from '../../../reusable/subsection/subsection';

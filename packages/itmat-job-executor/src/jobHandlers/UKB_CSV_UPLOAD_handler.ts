@@ -1,6 +1,6 @@
-import { IFile } from 'itmat-commons/dist/models/file';
-import { IJobEntry } from 'itmat-commons/dist/models/job';
-import { IStudyDataVersion } from 'itmat-commons/dist/models/study';
+import { IFile } from 'itmat-commons';
+import { IJobEntry } from 'itmat-commons';
+import { IStudyDataVersion } from 'itmat-commons';
 import { v4 as uuid } from 'uuid';
 import { db } from '../database/database';
 import { objStore } from '../objStore/objStore';
